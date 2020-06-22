@@ -16,7 +16,7 @@ public class Usuario implements Serializable{
 	private ArrayList<Pasaje> pasajes;
 	private SimpleDateFormat formatoFechaAerotaxi = new SimpleDateFormat("dd/MM/yyyy");
 	
-	//constructor
+	//constructores
 	public Usuario() {}
 	
 	public Usuario(String nombre, String apellido, String dni, Date nacimiento) {
@@ -31,6 +31,7 @@ public class Usuario implements Serializable{
 	public String getDni() {
 		return dni;
 	}
+	
 	public ArrayList<Pasaje> getPasajes(){
 		return pasajes; 	 
 	}

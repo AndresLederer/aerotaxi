@@ -22,8 +22,7 @@ public class Serializador {
 	public ArrayList<Vuelo> deserializarVuelos(String ruta) {
 		try {
 			ObjectInputStream flujoEntrada = new ObjectInputStream(new FileInputStream(ruta));
-			vuelosLeidos = new ArrayList<Vuelo>();
-			vuelosLeidos = (ArrayList<Vuelo>) flujoEntrada.readObject();
+			vuelosLeidos = (ArrayList<Vuelo>) flujoEntrada.readObject();	
 			flujoEntrada.close();
 		} catch (Exception e) {
 			System.out.println("exception de deserializar vuelos");
@@ -46,8 +45,7 @@ public class Serializador {
 	public ArrayList<Usuario> deserializarUsusrios(String ruta){
 		try {
 			ObjectInputStream flujoEntrada = new ObjectInputStream(new FileInputStream(ruta));
-			usuariosLeidos = new ArrayList<Usuario>();
-			usuariosLeidos =  (ArrayList<Usuario>) flujoEntrada.readObject();
+			usuariosLeidos = (ArrayList<Usuario>) flujoEntrada.readObject();
 			flujoEntrada.close();
 		} catch (Exception e) {
 			System.out.println("excpetion de deseraializar usuarios");

@@ -13,12 +13,10 @@ public class Pasaje implements Serializable {
 	
 	//constructor
 	public Pasaje(Vuelo vuelo, int cantidadDeViajeros) {
-//		this.usuario = usuario;
 		this.vuelo = vuelo;
 		this.cantidadDeViajeros = cantidadDeViajeros;
 		reservado = true;
 	}
-	
 	
 	//getters
 	public boolean getReservado() {

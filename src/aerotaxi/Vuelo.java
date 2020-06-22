@@ -11,7 +11,6 @@ public class Vuelo implements Serializable{
 	//atributos 
 	private SimpleDateFormat formatoFechaAerotaxi = new SimpleDateFormat("dd/MM/yyyy");
 	private Date fecha;
-//	private int cantidadMaxDePasajeros;
 	private Ruta ruta;
 	private Avion avion;
 	private int asientosLibres;
@@ -19,19 +18,15 @@ public class Vuelo implements Serializable{
 	//construtor
 	public Vuelo(Date fecha, int cantidadMaxDePasajeros, Ruta ruta, Avion avion) { 
 		this.fecha = fecha;
-//		this.cantidadMaxDePasajeros = checkCantidadMaxDePasajeros(cantidadMaxDePasajeros, avion);
 		this.ruta = ruta;
 		this.avion = avion;
-		asientosLibres = checkCantidadMaxDePasajeros(cantidadMaxDePasajeros, avion); //cantidadMaxDePasajeros;
+		asientosLibres = checkCantidadMaxDePasajeros(cantidadMaxDePasajeros, avion); 
 	}
 
 	//setters
 	public void setAsientosLibres (int asientosLibres) {
 		this.asientosLibres = asientosLibres;
 	}
-//	public void setReservado(boolean reservado) {
-//		this.reservado = reservado;
-//	}	
 	
 	//getters
 	public Avion getAvion() {
