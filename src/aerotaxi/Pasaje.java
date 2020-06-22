@@ -1,6 +1,11 @@
 package aerotaxi;
 
-public class Pasaje {
+import java.io.Serializable;
+
+public class Pasaje implements Serializable {
+	//serial version uid
+	private static final long serialVersionUID = 1L;
+
 	//atributos
 	private Vuelo vuelo;
 	private int cantidadDeViajeros;

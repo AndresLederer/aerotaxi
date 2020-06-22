@@ -1,6 +1,6 @@
 package aerotaxi;
 
-public enum Ruta{
+public enum Ruta {
 	//rutas (constantes)
 	BSAS_COR("Buenos Aires a Córdoba",695,"Buenos Aires","Córdoba"),
 	BSAS_STGO("Buenos Aires a Santiago de Chile",1400,"Buenos Aires","Santiago de Chile"),

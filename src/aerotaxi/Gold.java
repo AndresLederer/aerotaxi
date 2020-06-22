@@ -1,6 +1,9 @@
 package aerotaxi;
 
 public class Gold extends Avion implements otrosServicios{
+	//serial version uid
+	private static final long serialVersionUID = 1L;
+	
 	//atributos
 	private boolean wifi;
 	

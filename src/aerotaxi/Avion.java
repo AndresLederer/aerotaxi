@@ -1,6 +1,11 @@
 package aerotaxi;
 
-public abstract class Avion {
+import java.io.Serializable;
+
+public abstract class Avion implements Serializable{
+	//serial version uid
+	private static final long serialVersionUID = 1L;
+	
 	//atributos
 	private double capacidadCombustible;
 	private int capacidadPasajeros;

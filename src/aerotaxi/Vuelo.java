@@ -1,9 +1,13 @@
 package aerotaxi;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Vuelo {
+public class Vuelo implements Serializable{
+	//SerialVersion UID
+	private static final long serialVersionUID = 1L;
+	
 	//atributos 
 	private SimpleDateFormat formatoFechaAerotaxi = new SimpleDateFormat("dd/MM/yyyy");
 	private Date fecha;
@@ -18,7 +22,7 @@ public class Vuelo {
 //		this.cantidadMaxDePasajeros = checkCantidadMaxDePasajeros(cantidadMaxDePasajeros, avion);
 		this.ruta = ruta;
 		this.avion = avion;
-		asientosLibres = cantidadMaxDePasajeros;
+		asientosLibres = checkCantidadMaxDePasajeros(cantidadMaxDePasajeros, avion); //cantidadMaxDePasajeros;
 	}
 
 	//setters
@@ -47,16 +51,19 @@ public class Vuelo {
 		return asientosLibres;
 	}
 	
-	//la cant maxima de pasajeros de un vuelo tiene q ser menor o igual a la capacidad
-	//de pasajeros del avion -- No pueden ir pasajeros de pie en el avion
-//	private int checkCantidadMaxDePasajeros(int cantidadMaxDePasajeros, Avion avion){
-//		if(cantidadMaxDePasajeros > avion.getCapacidadPasajeros()) {
-//			System.out.println("la cantidad de pasajeros ingresada supera la capacidad del avion");
-//			return avion.getCapacidadPasajeros();
-//		}else {
-//			return cantidadMaxDePasajeros;
-//		}
-//	}
+	/*
+	 * la cant maxima de pasajeros de un vuelo tiene q ser menor o igual a la capacidad
+	 * de pasajeros del avion -- No pueden ir pasajeros de pie en el avion
+	 */
+	
+	private int checkCantidadMaxDePasajeros(int cantidadMaxDePasajeros, Avion avion){
+		if(cantidadMaxDePasajeros > avion.getCapacidadPasajeros()) {
+			System.out.println("la cantidad de pasajeros ingresada supera la capacidad del avion");
+			return avion.getCapacidadPasajeros();
+		}else {
+			return cantidadMaxDePasajeros;
+		}
+	}
 	
 	/*  
 	 * 	calcular costo del vuelo

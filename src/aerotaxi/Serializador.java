@@ -5,6 +5,30 @@ import java.util.ArrayList;
 
 public class Serializador {
 	public ArrayList<Usuario> usuariosLeidos;
+	public ArrayList<Vuelo> vuelosLeidos;
+	
+	public void serializarVuelos(ArrayList<Vuelo> vuelos) {
+		try {
+			ObjectOutputStream flujoSalida = new ObjectOutputStream(new FileOutputStream("archivos/vuelos.txt"));
+			flujoSalida.writeObject(vuelos);
+			flujoSalida.close();
+		}catch (Exception e) {
+			System.out.println("exception de serializar vuelos");
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public ArrayList<Vuelo> deserializarVuelos(String ruta) {
+		try {
+			ObjectInputStream flujoEntrada = new ObjectInputStream(new FileInputStream(ruta));
+			vuelosLeidos = new ArrayList<Vuelo>();
+			vuelosLeidos = (ArrayList<Vuelo>) flujoEntrada.readObject();
+			flujoEntrada.close();
+		} catch (Exception e) {
+			System.out.println("exception de deserializar vuelos");
+		}
+		return vuelosLeidos;
+	}
 	
 	public void serializarUsuarios(ArrayList<Usuario> usuarios) {
 		try {
@@ -12,7 +36,7 @@ public class Serializador {
 			flujoSalida.writeObject(usuarios);
 			flujoSalida.close();
 		}catch(IOException e){
-			System.out.println("Exception 0");
+			System.out.println("exception de serializar usuarios");
 		}
 	}
 	
@@ -24,7 +48,7 @@ public class Serializador {
 			usuariosLeidos =  (ArrayList<Usuario>) flujoEntrada.readObject();
 			flujoEntrada.close();
 		} catch (Exception e) {
-			System.out.println("Exception 1");
+			System.out.println("excpetion de deseraializar usuarios");
 		}
 		return usuariosLeidos;
 	}
