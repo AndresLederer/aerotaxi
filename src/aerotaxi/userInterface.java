@@ -88,7 +88,8 @@ public class userInterface extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setResizable(false);
-		
+
+		//recibo los usuarios y vuelos por parametro
 		this.usuarios = usuarios;
 		this.vuelos = vuelos;
 		
