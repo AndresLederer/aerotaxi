@@ -25,7 +25,7 @@ public class Aerotaxi {
 		vuelos = srl.deserializarVuelos("archivos/vuelos.txt");
 		
 		//instancio la UI
-		userInterface ui = new userInterface(usuarios,vuelos);
+		userInterface ui = new userInterface(usuarios,vuelos,srl);
 		ui.setVisible(true);
 		
 		

@@ -7,6 +7,7 @@ public class Serializador {
 	public ArrayList<Usuario> usuariosLeidos;
 	public ArrayList<Vuelo> vuelosLeidos;
 	
+	//vuelos
 	public void serializarVuelos(ArrayList<Vuelo> vuelos) {
 		try {
 			ObjectOutputStream flujoSalida = new ObjectOutputStream(new FileOutputStream("archivos/vuelos.txt"));
@@ -30,6 +31,7 @@ public class Serializador {
 		return vuelosLeidos;
 	}
 	
+	//usuarios
 	public void serializarUsuarios(ArrayList<Usuario> usuarios) {
 		try {
 			ObjectOutputStream flujoSalida = new ObjectOutputStream(new FileOutputStream("archivos/usuarios.txt"));

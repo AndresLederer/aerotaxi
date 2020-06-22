@@ -12,8 +12,10 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
-public class userInterface extends JFrame{
+public class userInterface extends JFrame implements WindowListener{
 	//constantes
 	private static final long serialVersionUID = 1L;
 	
@@ -35,6 +37,7 @@ public class userInterface extends JFrame{
 	private Container contentPane; //contenido del jframe
 	private ArrayList<Usuario> usuarios;
 	private ArrayList <Vuelo> vuelos;
+	private Serializador srl;
 	
 	//INDEX PANEL
 	private JPanel indexPanel; //panel de inico
@@ -82,18 +85,19 @@ public class userInterface extends JFrame{
 	private JLabel mensajeCancelacionConfirmada;
 	
 	//constructor
-	public userInterface(ArrayList<Usuario> usuarios,ArrayList<Vuelo> vuelos) {
+	public userInterface(ArrayList<Usuario> usuarios,ArrayList<Vuelo> vuelos,Serializador srl) {
 		setTitle("AeroTaxi");
 		setSize(900,600);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setResizable(false);
+		contentPane = getContentPane();
+		this.addWindowListener(this);
 
-		//recibo los usuarios y vuelos por parametro
+		//recibo los usuarios, los vuelos y el Serializador por parametro del consturctor
 		this.usuarios = usuarios;
 		this.vuelos = vuelos;
-		
-		contentPane = getContentPane();
+		this.srl = srl;
 		
 		//agrego panel index al jframe
 		cargarIndexPanel();
@@ -1402,6 +1406,40 @@ public class userInterface extends JFrame{
 				usuarioBuscado = u;
 		}
 		return usuarioBuscado;
+	}
+	
+	//metodos de la interfaz <windowListener>
+	@Override
+	public void windowOpened(WindowEvent e) {
+		System.out.println("window opened");
+	}
+	//al cerrar el jframe se guardan los cambios hechos en los usuarios y vuelos
+	@Override
+	public void windowClosing(WindowEvent e) {
+		System.out.println("window closing");
+		srl.serializarUsuarios(usuarios);
+		srl.serializarVuelos(vuelos);
+		System.out.println("Cambios guardados");
+	}
+	@Override
+	public void windowClosed(WindowEvent e) {
+		System.out.println("window closed");
+	}
+	@Override
+	public void windowIconified(WindowEvent e) {
+		System.out.println("window iconified");
+	}
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		System.out.println("window deiconified");
+	}
+	@Override
+	public void windowActivated(WindowEvent e) {
+		System.out.println("window activated");
+	}
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		System.out.println("window deactivated");
 	}
 }
 
